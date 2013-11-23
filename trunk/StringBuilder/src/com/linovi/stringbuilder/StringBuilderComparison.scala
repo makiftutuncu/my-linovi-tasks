@@ -45,7 +45,6 @@ object StringBuilderComparison
     println("toString of my StringBuilder(" + capacity + ") took " + (time8 - time7) + " milliseconds.")
     println()
     
-    /*
     println("Concatenating " + times + " Strings with + operator...")
     val time9 = System.currentTimeMillis()
     for(i <- 1 to times)
@@ -57,6 +56,5 @@ object StringBuilderComparison
     println("Concatenation with + operator took " + (time10 - time9) + " milliseconds.")
     
     println()
-    */
   }
 }
