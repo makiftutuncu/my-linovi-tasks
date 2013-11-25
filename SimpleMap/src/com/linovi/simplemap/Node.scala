@@ -23,10 +23,10 @@ class Node
   def this(d: Array[String]) = {this(); setData(d)}
   
   /** Gets the key of the data of this node */
-  def key: String = if(data != null) data(0) else ""
+  def key: String = if(data != null) data(0) else null
   
   /** Gets the value of the data of this node */
-  def value: String = if(data != null) data(1) else ""
+  def value: String = if(data != null) data(1) else null
   
   /** Sets new data for this node */
   def setData(k: String, v: String): Unit =
