@@ -7,14 +7,32 @@ object SimpleMapTest
 {
   def main(args: Array[String]): Unit =
   {
-    val a = new LinkedList
-    a.add(new Node("Ezgi", "Akif"))
-    a.add(new Node("Fatih", "Taner"))
-    a.add(new Node("Okan", "Ozan"))
-    a.add(new Node("Emre", "Cem"))
-    a.add(new Node("Umut", "Muhittin Topalak"))
-    val b = a.get("Emre")
-    println(b)
-    println(a.delete("Umut"))
+    val map = new SimpleMap
+    
+    println("Current map:")
+    println(map)
+    println("Is map empty: " + map.isEmpty)
+    
+    println("Putting new pairs...")
+    
+    map ++ ("Ezgi", "Akif")
+    map ++ ("Fatih", "Taner")
+    map ++ ("Okan", "Emre")
+    map ++ ("Muhittin Topalak", "Kezban")
+    
+    println("Current map:")
+    println(map)
+    println("Size of the map: " + map.size)
+    
+    println("Map contains a pair with key \"Ezgi\": " + map.contains("Ezgi"))
+    println("Value of the pair with key \"Ezgi\": " + map("Ezgi"))
+    
+    println("Deleting the pair with key \"Okan\"...")
+    
+    map -- "Okan"
+    
+    println("Current map:")
+    println(map)
+    println("Size of the map: " + map.size)
   }
 }

@@ -13,7 +13,14 @@ class LinkedList
   /** Number of nodes in the list */
   var count: Int = 0
   
-  /** Adds a given node to the end of the list */
+  /** Adds a given node to the end of the list
+   *  
+   *  @return true if successfully added, false otherwise */
+  def ++(node: Node): Unit = add(node)
+  
+  /** Adds a given node to the end of the list
+   *  
+   *  @return true if successfully added, false otherwise */
   def add(node: Node): Unit =
   {
     if(node != null)
@@ -35,8 +42,16 @@ class LinkedList
     }
   }
   
-  /** Gets the node with the given key or null if the given key doesn't exist in
-   *  the list */
+  /** Gets the value with the given key
+   *  
+   *  @return Value with the given key or null if the given key doesn't exist
+   *  in the list */
+  def apply(key: String): Node = get(key)
+  
+  /** Gets the value with the given key
+   *  
+   *  @return Value with the given key or null if the given key doesn't exist
+   *  in the list */
   def get(key: String): Node =
   {
     if(key == null)
@@ -56,8 +71,16 @@ class LinkedList
     }
   }
   
-  /** Deletes the node with given key if the given key exist in the list
-   *  Returns true if successfully deleted, otherwise returns false */
+  /** Deletes the node with given key
+   *  
+   *  @return true if the given key exist in the list and node is successfully
+   *  deleted, false otherwise */
+  def --(key: String): Boolean = delete(key)
+  
+  /** Deletes the node with given key
+   *  
+   *  @return true if the given key exist in the list and node is successfully
+   *  deleted, false otherwise */
   def delete(key: String): Boolean =
   {
     if(key == null)
