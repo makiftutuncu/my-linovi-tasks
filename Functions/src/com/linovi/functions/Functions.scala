@@ -13,7 +13,7 @@ object Functions
    *  and returns
    *    a function taking a parameter of Type2 and returning Type3 on which the
    *    given parameter of Type1 is partially applied */
-  def partial[Type1, Type2, Type3](a: Type1, f: (Type1, Type2) => Type3): Type2 => Type3 = f(a, _: Type2)
+  def partial[Type1, Type2, Type3](a: Type1, f: (Type1, Type2) => Type3): Type2 => Type3 = (x: Type2) => f(a, x)
   
   /** This function takes
    *    a function taking two parameters of types Type1 and Type2 and returning
@@ -22,7 +22,7 @@ object Functions
    *    a function taking a parameter of Type1 and returning a function taking
    *    a parameter of Type2 and returning a value of Type3 on which the given
    *    parameter of Type1 is partially applied */
-  def curry[Type1, Type2, Type3](f: (Type1, Type2) => Type3): Type1 => (Type2 => Type3) = (x: Type1) => f(x, _: Type2)
+  def curry[Type1, Type2, Type3](f: (Type1, Type2) => Type3): Type1 => (Type2 => Type3) = (x: Type1) => (y: Type2) => f(x, y)
   
   /** This function takes
    *    a function taking a parameter of type Type1 and returning a function
