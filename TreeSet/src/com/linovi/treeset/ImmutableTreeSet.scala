@@ -3,7 +3,7 @@ package com.linovi.treeset
 /** Represents a node in the ImmutableTreeSet */
 case class ImmutableNode(value: Int, left: ImmutableNode, right: ImmutableNode)
 {
-  override def toString = value.toString
+  override def toString = value.toString + " (" + hashCode() % 1000 + ")"
 }
 
 object ImmutableNode
@@ -328,6 +328,17 @@ case class ImmutableTreeSet(root: ImmutableNode, count: Int)
     else
       contains(n.right, v)
   }
+  
+  /** Traverses the tree starting from a node and prints it's contents */
+  private def print(n: ImmutableNode): String =
+  {
+    if(n == null)
+      "_"
+    else
+      "{" + n + ", " + print(n.left) + ", " + print(n.right) + "}"
+  }
+  
+  override def toString = "Tree (" + (hashCode() % 1000) + ")\n" + print(root)
 }
 
 object ImmutableTreeSet
